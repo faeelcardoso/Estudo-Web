@@ -4,6 +4,12 @@ console.log(7 / 0);
 console.log("10" / 2);
 // Dá certo, o próprio JS transforma a string 10 em number.
 
+console.log("10" + 2);
+// Aqui não efetua a operação pois a string tem prioridade, em vez de somar ela concatena
+
+console.log("10" - 2);
+// Aqui já funciona a operação como a string não faz sentido
+
 console.log("Show!" * 10);
 // Aqui já buga, NaN.
 
