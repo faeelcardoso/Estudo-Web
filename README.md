@@ -1,6 +1,4 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 74. Funções Anônimas - Cap: Funções
-
-Obs: estudar mais sobre Node vs Browser, entender conceito dos módulos em node, module.exports e this
+Parei no 84. Classe vs Funções Factory - Cap: Funções
