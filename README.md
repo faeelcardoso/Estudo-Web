@@ -2,4 +2,4 @@
 Repositório para meu curso de desenvolvimento web online
 
 Parei no 142. Projeto: API com Express - Cap: Node.
-Porém parei no 6min, pois deu erro com o id, aguardar udemy responder para continuar.
+Porém parei no 6min.
