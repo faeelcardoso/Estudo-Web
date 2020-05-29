@@ -1,5 +1,5 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 142. Projeto: API com Express - Cap: Node.
-Porém parei no 6min.
+Parei no 148. Operador Rest/Spread - Cap: ESNext.
+Estudar mais sobre herança, como funciona os protótipos JS.
