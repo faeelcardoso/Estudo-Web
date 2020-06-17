@@ -1,0 +1,52 @@
+<h1>Projeto</h1>
+<!-- Lista aninhada representando tipo as pastas de um projeto -->
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<ul class="tree"> <!-- Caso quiser voltar pra view altiga, só colocar mais um e no tree ali e safe -->
+    <li>
+        <span wm-folder>backend</span> 
+        <ul>
+            <li>
+                <span wm-folder>app</span> 
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span wm-folder>config</span> 
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span wm-folder>frontend</span> 
+        <ul>
+            <li>
+                <span wm-folder>public</span> 
+                <ul>
+                    <li>app.js</li>
+                    <li>app.css</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<script>
+    document.querySelectorAll('[wm-folder]').forEach(folder => {
+        folder.onclick = function(e) { // clicou nas folders, executa a função
+            const ul = folder.nextElementSibling // vai pegar literalmente o próximo elemento, ou seja, depois da folder tem as "ul"
+            const d = ul.style.display // acessando o display, ou seja, none invisivel block visível, pega a visibilidade dele
+            ul.style.display = d === 'none' ? 'block' : 'nome' // Oq ta rolando, se o display for estritamente igual a none, ele vai receber block, do contrário recebe none. 
+            // Alternando a visibilidade dele
+        }
+    })
+</script>

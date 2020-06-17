@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios HTML</title>
+    <style>
+        #conteudo {
+            padding: 30px 0px; /* espaçamento 30px em cima e embaixo, 0px dos lados */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> |
+        <a href wm-nav="exercicios/texto1.html">01 - Texto1</a> |
+        <a href wm-nav="exercicios/texto2.html">02 - Texto2</a> |
+        <a href wm-nav="exercicios/listas.html">03 - Listas</a> |
+        <a href wm-nav="exercicios/listaAninhada.html">04 - Lista Aninhada</a> |
+        <a href wm-nav="exercicios/links.html">05 - Links</a> 
+    </nav>
+    <section id="conteudo"></section> <!-- é uma seção, essa é a seção conteúdo -->
+    <footer>
+        Curso de Web Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => { // Estou pegando todos os links, em cima das tag 'a', pelo forEach
+        const conteudo = document.getElementById('conteudo') // pego o conteúdo pego ID
+
+            link.onclick = function(e) { // essa função vai ser dispadara pelo click
+                e.preventDefault() // ele vai previnir, em vez de navegar pra próxima página direto, ele vai ficar parado
+                fetch(link.getAttribute('wm-nav')) // Fetch faz uma chamada Ajax e pega o link
+                    .then(resp => resp.text()) // quando for resolvido aqui, vou ter o HTML
+                    .then(html => conteudo.innerHTML = html) 
+                    // Feito isso, posso passar pra outros conteúdos na página, sem navegar para outra, ficando na mesma página inicial, só trocando o conteúdo, ou seja, via Ajax
+            }
+        })
+    </script>
+</body>
+</html>
+
+<!-- Para retirar problemas de cache, só executar o servidor com "http-server -c-1", assim irá executá-lo sem cache nenhum -->
