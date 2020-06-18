@@ -1,0 +1,112 @@
+<div wm-slider>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Muro da Cidade" width="513" height="342" title="Muro da Cidade por Tarso Bessa">
+        <!-- alt, alternativo, oq vai aparecer se n carregar a img e tbm ajuda para deficientes visuais, title, quando passar o mouse por cima -->
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro Cod3r" height="342">
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+    </p>
+    
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align="left">
+        asjdhajksh hsdajk hdjh asjkdh hhashdash dhjaskhdh sdajdhjka hdasjhdj 
+        dsadasdwqd dasdqwd dasdasd fffffffffa wdq qw qwasd sdadasdasddasdsadas
+        dqwdqwd dwqdqdqwd dqwdqdsaasdasdasdjasdjhasjdhasjhdashdjkashdjhasdh dhasjhdjas   
+        dasjdklasjdklasjdl djsakljdkasjd djsakdjdsjakdj asjkdjaskljd djaskldjklas
+        djkasljdklas dkasljdkl djaskldjl ldkas jdklasj dkasljdkl askjdklajsdklasj 
+        dlçsajkdlajs dkasjdkla djkaljdkaslj djaskdlas, dajkshdjkahsdhaskjh das.
+    </p>
+    
+    <p class="cidade"></p>
+    
+    <p>
+        <picture> <!-- com picture você pode colocar várias imagens e foontess diferentes, e colocar critérios para que elas sejam exibidas ou não -->
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+                <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+                <!-- Ou seja, quando a tela for menor, passa para a imagem debaixo -->
+        </picture>
+    </p>
+</div>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+    .texto {
+        width: 400px;
+    }
+
+    .texto img {
+        margin-right: 10px;
+    }
+
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+
+<script>
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo 
+        if(novoInicio >= fim) {
+            elem.style.right = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+
+    /*const p = document.querySelector('[wm-slider] > p')
+    p.style.display = 'block'
+    mover(p, 1500, -520, 5, () => {
+        console.log("Terminou!!")
+    })*/
+
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p')
+        const slides = Array.from(elementos)
+        // document na web não é um array, é um node list. Porém com o array.from consigo transformar esses nodelist em um array
+        // ou seja, transformei todos os emementos que eram nodelist, em arrays
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide) { // lista de slides, próprio slide que vc ta querendo exibir
+        slide.style.display = "block"
+
+        const inicio = innerWidth // innerWidth é a largura interna da pagina
+        const fim = -slide.clientWidth // "largura do cliente"
+        // posso colocar por numeros tbm, por exemplo, inicio = 2000 e fim = -130. Mas a forma acima é mais inteligente
+
+        slide.style.right = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none' // primeiro desaparece tudo, para então começar tudo de novo
+            exibirSlide(slides, getProximo(slides, slide))
+            // ou seja, vai chamar o slide, começar tudo e quando terminar, vai pegar todos os slides e voltar para o inicio com função getProximo
+        })
+    }
+
+    function getProximo(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
+        // ou seja, se o i for menor que o tamanho do array, chama o próximo. Se ele já for do tamanho do array ou maior, começa tudo de novo
+    }
+
+    slider()
+</script>

@@ -1,0 +1,60 @@
+<table>
+    <caption>Produtos</caption> <!-- é para saber oq representa essa tabela, pode ser colocado ou não, mais é mais raro -->
+    <thead> <!-- Vai definir a área que você vai colocar o cabeçalho da sua tabela --> 
+        <tr> <!-- tr - tableroll é uma linha dentro da tabela -->
+            <th>Produto</th> <!-- th é o cabeçalho das minhas colunas -->
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>    
+    <tbody> <!-- tbody é o corpo da tabela -->
+        <tr>
+            <td>iPad</td> <!-- Os dados -->
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr>
+            <td>Samsung S20</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot> <!-- Rodapé -->
+        <tr>
+            <td colspan="3">Total</td> <!-- colspan ocupa mais células na tabela, por exemplo eu ocupei 3. Existe tbm o rollspan, ocupando mais células na horizontal -->
+                                       <!-- ou seja, colspan ocupa mais linhas, rollspan ocupa mais colunas -->
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse; /* Para não ter borda */
+    }
+
+    th, td {
+        padding: 10px; /* espaço entre eles */
+    }
+
+    thead tr {
+        border-bottom: solid 3px #444; /* Borda na parte de baixo do thead troll, sólida, 3px um pouco grossa e cor cinza */
+    }
+
+    tbody tr:hover { /* própriedade hover é quando o mouse passar por cima */
+        background-color: #dedede;
+    }
+
+    tfoot {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    caption {
+        font-weight: bold;
+    }
+</style>
