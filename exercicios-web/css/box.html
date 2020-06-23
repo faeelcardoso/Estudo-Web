@@ -5,7 +5,22 @@
     <meta charset="UTF-8">
     <title>Box Model</title>
     <style>
-        /* ... */
+        body { font-size: 80px; margin: 0; }
+        .c1 { background-color: orange }
+        .c2 { background-color: skyblue; }
+        .c3 { background-color: tomato; }
+
+        div {
+            float: left; /* faz com que os elementos caiam para um lado, nesse exemplo, para esquerda */
+            padding: 50px;
+            margin: 0 20px;  
+            border: solid 15px black; 
+        }
+
+        div.c3 {
+            margin-left: 500px;
+            margin-top: 100px;
+        }
     </style>
 </head>
 

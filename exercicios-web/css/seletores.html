@@ -6,7 +6,23 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* * -- seleciona tudo */
+        /* .tag -- seleciona a classe */
+        /* #aprovados -- seleciona o ID */
+        /* #aprovados > div -- seleciona a div que está dentro do ID aprovados */
+        /* p + ul -- seleciona os adjacentes, um está logo a frente do outro, ou seja, vai selecinar a "ul" que está diretamente depois de "p" */
+        /* p ~ ul -- seleciona a "ul" que está dentro de um elemento pai e que tem uma tag "p" anterior */
+        /* [feira] -- seleciona todos os elementos que tem como propriedade feira */
+        /* [feira=casa] -- seleciona os elementos associados a propriedade com o seu valor */
+        /* [feira~=casa] -- seleciona os elementos que tem a propriedade casa no meio */
+        /* [feira*=sa] -- seleciona os elementos que no nome do valor da propriedade, tem "sa" no meio */
+        /* span:nth-child(1) -- seleciona o primeiro filho de um span, mas cuidado com label, se não der aplicar o "noLabel" */
+        /* section > :nth-child(odd) -- seleciona todos os filhos ímpares dentro de uma section, se não der ou selecionar os pares, aplicar o noLabel */
+        /* section > :nth-child(even) -- seleciona todos os filhos pares dentro de uma section, se não der ou selecionar os ímpares, aplicar o noLabel */
+        section > span:nth-last-of-type(2) { /* seleciona o segundo elemento do tipo span, dentro da section, se não funfar colocar noLabel igual eu fiz */
+            color: #ff0;
+            background-color: #f77;
+        }
     </style>
 </head>
 
@@ -29,7 +45,7 @@
             </ol>
             <div id='aninhado' class='tag'>
                 <div class="tag">
-                    <section class='tag'>
+                    <section class='tag noLabel'>
                         <span class='tag'>1</span>
                         <p class='tag'>2</p>
                         <span class='tag'>3</span>

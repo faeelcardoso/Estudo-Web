@@ -4,8 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Herança</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kite+One&display=swap" rel="stylesheet"> <!-- Font do google -->
     <style>
-        /* ... */
+        body {
+            font-family: 'Kite One', sans-serif;
+            font-size: 40px;
+            border: solid 3px red;
+            padding: 50px;
+        }
+
+        div { /* border e padding o padrão é não herdar */
+            border: inherit; /* com oo "inherit" eu obrigo a herdar */
+            padding: inherit;
+        }
     </style>
 </head>
 
