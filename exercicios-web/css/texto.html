@@ -11,10 +11,71 @@
             margin: 0;
         }
 
+        html {
+            font-size: 28px;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        div {
+            font-size: 50px;
+        }
+
+        p {
+            /* valores Padrões */
+            font-size: 1em;
+            font-size: 100%;
+            font-size: 16px;
+            font-size: 12pt;
+
+            /* Unidades Absolutas */
+            font-size: 100px; /* tamanho do pixel é relativo, não é o pixel da tela, depende */
+            font-size: 72pt; /* pontos */
+            font-size: 1in; /* polegadas */
+
+            /* Unidades relativas */
+            font-size: 2.2em; /* 2.2 vezes o tamanho da unidade mais próxima, nesse caso "p" está dentro da div */
+            font-size: 2.2rem; /* 2.2 vezes o tamanho da unidade raiz do html, ou seja 16px, a menos que eu tenho mudado manualmente */
+            font-size: 50vh; /* 50% a altura do viewport, ou seja, tela. Porém não é muito comum usar vh e vw para textos */
+            font-size: 10vw; /* 10% a largura do viewport */
+
+            font-family: monospace;
+            font-family: Georgia, serif;
+            font-family: Verdana, sans-serif;
+            font-family: 'Indie Flower', cursive;
+
+            font-weight: 100; /* Peso da fonte, pode ser em numéricos ou */
+            font-weight: bold; /* ou pré definidos */
+            font-style: italic;
+            text-transform: uppercase; /* transforma as letras, essa que coloquei ficam todas grandes, mas pode tbm só a primeira letra grande, todas pequenas, etc... */
+            text-decoration: overline underline line-through; /* linhas em cima dos textos, em baixo ou através */
+            word-spacing: 10px; /* separação entre as palavras */
+            letter-spacing: 80px; /* separação das letras das palavras */
+            line-height: 2.2em; /* altura da linha */
+            text-align: center; /* alinhas o texto no centro, a direita, esquerda ... */
+        }
+
+        .botao {
+            /* Obs: tem duas classes noo link google, essa botao irá definir o "geral" do botão e a destaque vai dar a cor e acabamento final */
+            font-size: 28px;
+            text-decoration: none; /* tira a linha que fica embaixo do link */
+            padding: 10px 30px;
+            border-radius: 25px; /* borda arredondada */
+        }
+
+        .destaque {
+            color: #fff;
+            background: tomato;
+            box-shadow: 2px 2px 1px 1px #000; /* Sombra, fica um efeito mais 3D */
+        }
+
+        .destaque:active { /* Quando eu clico no botão, acontece o que está nessa classe */
+            box-shadow: none; /* Ou seja, quando clicar no botão, o sombreamento irá sumir */
+            /* Assim dá a idéia do clique e que afundou o botão */
         }
     </style>
 </head>

@@ -9,6 +9,12 @@
             height: 100px;
             width: 260px;
             border: solid 3px;
+            overflow: hidden; /* Com isso, tudo o que extrapola é escondido */
+           /* overflow: scroll; /* Cria um scrol dentro da box, tanto no eixo x como no y */
+            overflow-x: scroll; /* Cria um scrol somente no eixo x */
+            overflow-y: hidden; /* Agr esconde tudo no eixo y */
+
+            /* IMPORTANTE: só vai acontecer overflow com valores fixo, do contrário a div vai acompanhar o conteúdo */
         }
     </style>
 </head>

@@ -5,7 +5,80 @@
     <meta charset="UTF-8">
     <title>Position</title>
     <style>
-        /* ... */
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+            color: #fff;
+        }
+
+        .static {
+            top: 100%;
+            left: 100%;
+            background-color: steelblue;
+            /* nota que top e left não vai ser considerado por causa da posição que está static, ou seja, faz que essas variáveis não sejam consideradas */
+        }
+
+        .fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            background-color: tomato; /* Essa position é interesante para banners de promoções, por mais que você role a pagina, o que está de fixed irá acompanhar */
+        }
+
+        .relative1 {
+            position: relative;
+            /* Essa position leva em consideração o elemento anterior, não a página como um todo ou seja */
+            left: 20px;
+            top: 5px;
+            /* ele irá afastar 20 e 5 px do elemento fixed, e não dá pagina */
+            background-color: seagreen;
+        }
+
+        .absolute1 {
+            position: absolute;
+            /* Essa posição passa em cima de tudo, overflow, e também ela leva em consideração a página e não o elemento anterior */
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+
+        .relative2 {
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategray;
+        }
+
+        .absolute2 {
+            position: absolute;
+            /* Quando você tem um element position absolute, dentro de um element relative, o absolute passa a levar em consideração o elemento anterior, no caso o que está fora dele */
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .sticky {
+            position: sticky;
+            /* Parecida com a fixed, porém ela fica normal, até a barra de rolagem atingir(no caso desse exemplo) 10px do top, a partir daí ela ficará fixa no topo */
+            /* Ou seja, quando a rolagem chegar no sticky, ela ficará fixa */
+            background-color: #777;
+            top: 10px;
+        }
+
+        /*  Ou seja
+            static: padrão, não leva em consideração left, top ...
+            fixed: fixo, por mais que role a pagina vai aconmpanhar a rolagem
+            relative: leva em consideração o elemento anterior e não a pagina
+            absolute: depende, sozinho leva em consideração a pagina e da ovewflow, dentro de outro elemento que seja relative, leva em consideraã o elemento anterior, no caso o que está fora dele
+            sticky: quando a rolagem chegar no sticky, ficará fixo
+        */
+
+        
     </style>
 </head>
 

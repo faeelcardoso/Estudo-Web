@@ -4,7 +4,25 @@
     <meta charset="UTF-8">
     <title>Unidades #02</title>
     <style>
-        /* ... */
+        .fora {
+            position: relative;
+            background-color: orange;
+            height: 400px;
+            width: 400px;
+            padding: 50px;
+        }
+
+        .dentro {
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /* Posição static, padrão, ocupa nesse caso o 100% da largura dedicado ao "conteudo" */ 
+            position: relative; /* Posição tbm ocupa de acordo com o conteúdo */
+            position: absolute; /* Aqui já ocupa o de acordo com o conteúdo + padding, ou nao tomar cuidado estrapola */
+            position: fixed; /* Aqui  tem que tomar mais cuidado ainda, ele ocupa de acordo com o viewport, ou seja, 100% da largura vai até o outro lado da tela */
+
+            /* Ou seja, tomar cuidado com valores em % porcentagem */
+        }
     </style>
 </head>
 <body>
