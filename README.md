@@ -1,4 +1,4 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 206. Inline-block - CSS
+Parei no 217. Media-Query - CSS
