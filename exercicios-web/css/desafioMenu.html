@@ -82,6 +82,35 @@
             background-color: #4faddb;
             color: #000;
         }
+
+        .botao {
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin: 10px;
+        }
+
+        .destaque{
+            background: #f50a31;
+            color: #fff;
+        }
+
+        @media(min-width: 679px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        @media(max-width: 680px) {
+            .menu {
+                display: none;
+            }
+        }
+
+        @media(max-width: 910px) {
+            .autenticacao {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -118,7 +147,16 @@
     </header>
 
     <script>
-        // ...
+        window.onhashchange = function(e) {
+            const oldURL = e.oldURL.split('#')[1] // o split divide o eu vou pegar, nesse caso vou ignorar o # e pegar só oq está depois dele e o [1] é pra pegar a url new, [0] é a old
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+            // Desse jeito, clicando na url nova, vai salvar a antiga em oldURL e pegar a nova e salvar em newURL
+            const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`) // pega o link antigo
+            const newLink = document.querySelector(`.menu a[href='#${newURL}']`) // pega o link novo
+            oldURL && oldLink.classList.remove('selected') // remove a classe selected do antigo
+            newURL && newLink.classList.add('selected') // adiciona a classe selected do novo
+        }
     </script>
 </body>
 

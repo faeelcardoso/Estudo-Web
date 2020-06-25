@@ -6,16 +6,53 @@
     <title>Flexbox #02</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) { /* dentro da div, vou pegar o 3º filho */
+            background-color: indianred;
+            order: 1; /* quando eu aplico uma ordem 1, ele fica como prioridade e passa a ser exibido por último */
+            order: 0; /* ordem 0 já é o padrão do html */
+            order: -1; /* ordem menor que 0 ele fica sem prioridade e passa a ser exibido primeiro */
+            align-self: center; /* alinha o item no meio */
+            align-self: flex-start; /* alinha o item no início do main */
+            align-self: flex-end; /* alinha o item no final do main */
+            align-self: stretch; /* é o default, fica padrão */
+        }
+
+        .flex-container div {
+            box-sizing: border-box;
+            margin: 0;
+            width: 100px;
+            flex-grow: 0; /* padrão */
+            flex-grow: 1; /* o espaço que estiver faltando dentro da box, é dividido e somado entre todos os items, assim não fica com espaço sobrando */
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2; /* Aqui eu pego a div 1 e como não tem mais espaço sobrando por conta do flex-grow 1 de cima */
+            /* ele vai pegar a div 1 e multiplicar por 2, crescendo mais que os outros */
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 0; /* shrink encolhe os elementos, de acordo com esse exemplo todos iram encolher da mesma forma */
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-shrink: 5; /* encolhe o elemento 1 */ 
+        }
     </style>
 </head>
 
 <body>
-    <div class="flex-container tag nolabel">
-        <div class="tag nolabel">1</div>
-        <div class="tag nolabel">2</div>
-        <div class="tag nolabel">3</div>
-        <div class="tag nolabel">4</div>
+    <div class="flex-container tag noLabel">
+        <div class="tag noLabel">1</div>
+        <div class="tag noLabel">2</div>
+        <div class="tag noLabel">3</div>
+        <div class="tag noLabel">4</div>
     </div>
     <script src="js/tag.js"></script>
 </body>

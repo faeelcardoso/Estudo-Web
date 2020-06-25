@@ -6,7 +6,49 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .big {
+            font-size: 1.5em;
+        }
+
+        .flex-container {
+            display: flex; /* display flex, unidimensional já vem com flex-direction row(linha) */
+            flex-direction: column; /* os flex itens ficam em coluna */
+            flex-direction: column-reverse; /* Coluna fica de baixo pra cima */
+            flex-direction: row-reverse; /* fica row(linha) e de traz pra frente */
+            flex-direction: row; /* os flex itens ficam em linha */
+            width: 50%; 
+            flex-wrap: wrap; /* se ocorrer overflow com os flex-items, o wrap quebra a linha */
+            flex-wrap: wrap-reverse; /* reverte as linhas */
+            flex-flow: row wrap; /* fica em linha e quebrando linha caso ocorra overflow, é o flex-direction row e flex-wrap wrap junto, flex-flow row wrap*/
+            height: 200px;
+            flex-flow: column-reverse wrap; /* direção em coluna, reversa e quebrando linha */
+            flex-flow: row wrap;
+
+            /* Main Axis */
+
+            justify-content: flex-start; /* alinha justify do início da main-axis */
+            justify-content: flex-end; /* alinha justify do final da main-axis */
+            justify-content: center; /* centraliza os flex items */
+            justify-content: space-around; /* coloca espaço ao redor dos items */
+            justify-content: space-between; /* coloca espaço entre os items */
+
+            /* Cross Axis */
+
+            height: 400px;
+            align-items: stretch; /* padrão */
+            align-items: baseline; /* alinha os itens a partir da base do cross */
+            align-items: flex-start; /* alinha no início do cross */
+            align-items: flex-end; /* alinha no final do cross */
+            align-items: center; /* alinha no centro do cross */
+            
+            /* Mais de uma linha */
+
+            align-content: flex-start; /* todas as linhas vão para o início do flex container */
+            align-content: flex-end; /* todas as linhas vão para o final do flex container */
+            align-content: center; /* alinha todas as linhas no centro do container */
+            align-content: space-around; /* coloca espaço ao redor do container  */
+            align-content: space-between; /* coloca espaço no meio das linha no container */
+        }
     </style>
 </head>
 
