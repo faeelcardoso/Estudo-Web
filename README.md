@@ -1,4 +1,4 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 226. Flex Box#3 - CSS
+Parei no 228. Resumão Flex Box - CSS
