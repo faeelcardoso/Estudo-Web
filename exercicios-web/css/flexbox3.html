@@ -6,16 +6,33 @@
     <title>Flexbox #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-container div {
+            margin: 0;
+            flex-basis: 100px; /* forma oficial de definir o tamanho do elemento flex, sempre de acordo com o main-axis  */
+            /* no exemplo, main-axis é row, ou seja, 100px pro lado */
+            width: 200px; /* se o flex-basis estiver ativo, não irá funcionar pois o flex-basis é mais forte */
+            /* Porém só não irá surgir efeito no main-axis, no caso ele ta row, se fosse largura em column, funcionava */
+        }
+
+        .flex-container div:nth-child(4) {
+            /* Propriedade flex, tipo flex-flow, 3 em 1 porém ela é: */
+            /* flex = grow shrink e basis */
+            flex: 3 6 100px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="flex-container tag nolabel">
-        <div class="tag nolabel">1</div>
-        <div class="tag nolabel">2</div>
-        <div class="tag nolabel">3</div>
-        <div class="tag nolabel">4</div>
+    <div class="flex-container tag noLabel">
+        <div class="tag noLabel">1</div>
+        <div class="tag noLabel">2</div>
+        <div class="tag noLabel">3</div>
+        <div class="tag noLabel">4</div>
     </div>
     <script src="js/tag.js"></script>
 </body>
