@@ -22,6 +22,51 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        /* LER AQUIIIIIIII!!! 
+            PARA MEXER NO GRID, COLUNAS E LINHAS NÃO OLHAR NORMAL IGUAL O RESTO,
+            OLHA A COLUNA E A LINHA NAS BORDAS DAS MESMAS, QUALQUER IR NO FIREFOX
+            QUE NO F12 DELE, TEM UMA FERRAMENTA BASTANTE DIDÁTICA
+         */
+
+        body {
+            display: grid;
+            grid-template-columns: 50% 50%; /* Fica duas cpçimas de 50% */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%); /* Cria colunas repetindos, ali vai criar 4x8.33,8.33,8.33 */
+            grid-template-columns: repeat(12, 8.33%); /* Mesmo resultado do de cima */
+            grid-template-columns: repeat(11, 100px) 100px; /* 12 de 100px */
+            grid-template-columns: minmax(100px, 300px); /* mínimo 100px e max 300px */
+            grid-template-columns: 200px 20% 1fr; /* 1º colum 200px, 2º column 20% e 1fr é o resto que sobrou */
+            grid-template-columns: 3fr 6fr 3fr; /* Total 12, 1ª colunm com espaço de 3, do meio metade 6 e 3ª com 3 tbm */
+            grid-template-rows: 50% 25% 12.5% 12.5%; /* 1ª 50%, 2ª 25%, 3ª e 4ª com 12.5% */
+            grid-template-rows: 100px 1fr; /* 100px para 1ª, 1fr para 2ª e as que sobraram vão ter tamanho padrão */
+            grid-template-rows: 100px auto auto auto; /* 100px 1ª column e o resto automático porém padrão. FR cresce e auto é padrão */
+        }
+
+        .d8 {
+            grid-column-start: 2;
+            grid-column-end: 4; /* Ele vai começar na 2 e vai até a 4 (Olhar no CSS Grid Inspector) */
+            grid-column-end: span 2; /* Mesma coisa do de cima, aqui ele vai começar a casa 2 e vai dar um span de 2 casas, vai pular 2 casas e parar na 4 */
+            grid-row-start: 3; /* Começar a linha 3 do grid */
+            grid-row-end: 5; /* E terminar na linha 5 do grid */
+            grid-row-end: span 2; /* Começar da 3 e pular 2 casas e parar na 5 */
+        }
+
+        .d10,
+        .d11 {
+            /* Cuidado!! Eles podem se sobrepor!! */
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;
+            /* Ocorreu sobreposição, muito cuidado!! */
+        }
+
+        .d10 {
+            /* Eixo x horizontal, eixo y vertical e eixo z profundidade */
+            z-index: 1; 
+            /* O 10 estava sobresposto pelo 11, com o z-index agr positivo ele obriga a ficar em cima do 11, caso seja negativa fica embaixo */
+        }
     </style>
 </head>
 

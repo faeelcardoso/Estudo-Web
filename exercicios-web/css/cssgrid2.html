@@ -20,6 +20,31 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body{
+            display: grid;
+            grid-template-columns: /* coloquei nome nas colunas */
+            [inicio] 1fr 
+            [metade-1 meio-1] 1fr 
+            [metade-2 meio-2] 1fr [fim];
+            grid-template-rows: repeat(3, 1fr); /* Criei 9 celulas */
+
+            
+            /* Grid-Gap: aplica o espaço entre as células */
+            grid-row-gap: 20px;
+            grid-column-gap: 20px;
+            grid-gap: 50px 20px; /* entre as linhas e entre as colunas */
+        }
+
+        .d1 {
+            grid-column-start: metade-2;
+            grid-column-end: fim;
+            grid-column: meio-1 / fim; /* faz a mesma coisa que em cima porém mais curto, propriedade short */
+            grid-row: 1 / span 2; /* Começar na primeira linha e vai pular 2 */
+
+            /* Grid-Area: row-start column-start row-end column-end */
+            grid-area: 1 / meio-1 / span 3 / fim; /* define a área */
+        }
     </style>
 </head>
 
