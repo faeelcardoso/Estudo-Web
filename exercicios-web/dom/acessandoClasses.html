@@ -12,7 +12,31 @@
         Classes
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div')
+        const classes = div.classList // com classList consigo fazer tudo nas classes
+        classes.add('destaque') // adiciono o destaque, que está lá em css
+        classes.remove('destaque')
+        classes.toggle('destaque') // toggle funciona como alternancia, ou seja, se tem destaque ele remove se não tem ele adiciona
+        console.log(classes.contains('destaque')) // olha se destaque está na minha lista de classes
+        console.log(classes.length) // quantidade de classes que determinado elemento têm
+        classes.toggle('destaque')
+        console.log(classes.length) 
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+        
+        for(let c of classes) {
+            console.log(c)
+        } 
+        // consigo ver as classes que estão disponíveis e posso fazer oq eu quiser com elas
+        // nessa classe possuí até o forEach, mas não possui map, reduce etc, por exemplo
+
+        classes.forEach(c => console.log(c))
+        // para o map e reduce ficarem disponíveis, só transformar em array
+        arrayClasses = [...classes]
+        console.log(arrayClasses)
+        // transformado em array, uma das formas de se fazer, spread
     </script>
 </body>
 

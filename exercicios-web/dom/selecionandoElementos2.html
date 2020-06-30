@@ -9,8 +9,34 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script> 
+        // Mais formas de selecionar elementos, querySelector e querySelectorAll             
+        document.querySelector('#primeiro').classList.add('destaque')
+        // Aqui preciso passar o '#' pois ele espera um selector, independente do que seja, id, classe...
+        // Selecionou o id 'primeiro' e aplicou o ID
+
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+            // selectiorAll retorna um NodeList
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div')
+
+        deselecionar('*')
+        selecionar('.terceiro.ultimo') // vai selecionar somente o que tem terceiro.ultimo
+
+        deselecionar('*')
+        selecionar(':not(#primeiro') // vou selecionar todos e vou ignorar somente o primeiro
+
+        deselecionar('*')
+        selecionar(':nth-child(1)') // o primeiro filho de algum elemento, nesse caso vai pegar o body
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') // o primeiro elemento do tipo div
+
+        deselecionar('*')
+        selecionar('[wb-attrib]') // seleciona somente quem tem o atributo personalizado
     </script>
 </body>
 </html>

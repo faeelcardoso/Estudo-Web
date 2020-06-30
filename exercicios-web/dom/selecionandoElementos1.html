@@ -10,7 +10,27 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        // Como selecionar elementos a partir da DOM: getElementById, getElementsByTagName, Spread, getElementsByClassName
+        // 1ª Forma
+        document.getElementById('primeiro').classList.add('destaque')
+        // Pegando um único id, aqui ele espera um id, ou seja, não precisa colocar o "#".
+
+        const divs = document.getElementsByTagName('div')  
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+        // Pegando tags, nesse exemplo a tag div
+        // transformando o HTMLColection em um array, percorrendo com um forEach e removendo as divs que estiverem com destaque
+
+        const divsArray = [...divs]
+        divsArray.forEach(e => e.classList.add('destaque'))
+        // Pegando as div e usando o spread para transformar em um array
+        // dps o forEach faz o trabalho dele
+
+        const ultimosElementos = document.getElementsByClassName('ultimo')
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque')
+        }
+        // Pegando a classe, que geralmente fica por último
+        // Dá pra selecioanr sem transformar em uma array, o próprio forOf já faz isso
     </script>
 </body>
 </html>

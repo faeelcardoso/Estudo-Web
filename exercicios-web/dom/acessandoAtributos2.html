@@ -17,7 +17,33 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"...............')
+        console.log('childNodes', lista.childNodes) // com textos
+        console.log('destino', lista.destino) // erro pois notação ponto não acessa as propriedades personalizadas
+        console.log('getAttribute', lista.getAttribute('destino')) // getAttribute acessa as propriedades personalizadas
+        console.log('hasAttribute', lista.hasAttribute('destino')) // para saber se tem um atributo ali
+        lista.setAttribute('destino','empresa') // setar um atributo, no lugar de destino quero empresa, nessa caso alterando pois o destino existe
+        lista.setAttribute('status', 'aberto') // setar um atributo que não existe, nessa caso irá adicionar um novo atributo
+        lista.removeAttribute('destino') // remove um atributo
+
+        // IMPORTANTE: os atributos personalizados com data tem um tratamento diferente
+        console.log(lista.dataset) // lista todos os atributos personalizados com data
+        console.log(lista.dataset.urgencia) // mostra o atributo data urgencia
+        lista.dataset.urgencia = 4 // pode alterar o valor também
+        console.log(lista.getAttribute('data-urgencia')) // posso visualiza-lo com o getAttribute
+
+        // CUIDADO 
+        const label = document.querySelector('label')
+        console.log(label.for) // não funciona
+        console.log(label.htmlFor) // funciona
+        console.log(label.getAttribute('for')) // funciona
+
+        // CONCLUSÃO 
+        /* Atributos do próprio html posso acessar com notação ponto
+           Atributos personalizados consigo acessar pela função getAttribute, não só personalizados como qualquer atributo
+           E quando os atributos são personalizados com prefixos data, posso acessá-los com o data set ou até mesmo o getAttribute
+        */
     </script>
 </body>
 

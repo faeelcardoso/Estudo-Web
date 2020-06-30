@@ -22,7 +22,36 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+        // só estou fazendo a função console.log kkkkk
+
+        HTMLCollection.prototype.log = log // estou passando pro htmlcollection o log, através da herança
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul') // selecionei a ul
+        lista.parentElement.log() // seleciona a "div" que é o pai da "ul"
+        lista.childNodes.log() // seleciona os filhos da "ul", os "li", porém aqui retorna os textos também, ou seja, os espaços entre eles
+
+        const primeiro = lista.firstChild
+        primeiro.log() // dessa forma pego o primeiro filho da lista, porém nesse caso vai ser o texto por causa dos espaços
+        primeiro.nextSibling.log() // com o nextSibring pego o próximo, aí sim pego o l1, Pedro
+
+        const ultimo = lista.lastChild
+        ultimo.log() // seleciona o text
+        ultimo.previousSibling.log() // Seleciona o anterior, e pego o li Bia
+
+        lista.children.log() // já aqui me retorna somente os li, ignora os espaços, os textos. Entretando retorna um HHTMLColection
+        lista.firstElementChild.log() // aqui pega o primeiro elemento, o primeiro li e não o texto
+        lista.lastElementChild.log() //  pega o ultimo elemento da lista, o último li
+        lista.parentNode.previousElementSibling.log() // irá pegar o pai "div" nesse exemplo e o elemento anterior a ela, outra "div" início
+        lista.parentNode.nextElementSibling.log() // irá pegar o pai "div" e logo depois o próximo elemento, a div fim
+
+        // Agr caso você queira pegar todos os "li" sem pegar os textos, seria mais inteligente dessa forma
+        document.querySelectorAll('div ul li').log()
     </script>
 </body>
 

@@ -15,7 +15,33 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        // Curiosidade
+        // Com o seletor "." = seleciona uma classe
+        // Com o seletor "#" = seleciona um ID
+        // com o seletor [] = seleciona um propriedade
+        // sem nada você estará selecionando o elemento que você quer
+
+        const img = document.querySelector('img')
+        console.log('[src]', img['src'])
+        console.log('src', img.src)
+        console.log('getAttribute', img.getAttribute('src')) // mais utilizada
+        console.log('alt', img.alt)
+
+        console.log('Elemento "img"...............')
+        console.log('NodeType', img.nodeType) // Olhar no site Nodetype qual nó que o 1 significa
+        console.log('NodeName', img.nodeName) //  Me dá o nome do que estou mexendo, no caso uma IMG
+
+        const src = img.getAttributeNode('src')
+        console.log('Atributo "src"...............')
+        console.log('NodeType', src.nodeType) // número do nodeType, nesse caso o nó 2
+        console.log('NodeName', src.nodeName) // nome do que estou mexendo, SRC
+        console.log('NodeValue', src.nodeValue) // valor do que estou mexendo, o link do src
+
+        const link = document.querySelector('a') 
+        console.log('Elemento "a"................')
+        console.log('href', link.href) // seleciono o link
+        console.log('firstChild.nodeType', link.firstChild.nodeType) // nesse caso é o elemento texto "Cod3r", nó 3
+        link.firstChild.nodeValue = 'Novo texto' // Consigo alterar o texto com nodeValue, como o primeiro filho do href é um texto
     </script>
 </body>
 

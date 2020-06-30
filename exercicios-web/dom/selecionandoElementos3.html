@@ -31,7 +31,17 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        // Selecioanr elementos no F12, console web
+
+        console.log(document.forms) // HTML Colection
+        console.log(document.forms[0]) // retorna o form 
+        console.log(document.getElementsByName('pesquisa')) // retorna um Node List, função mais nova
+        console.log(document.getElementsByTagName('pesquisa')) // retorna um HTML Colection
+        console.log(document.pesquisa) // retorna o form pesquisa
+        console.log(document.pesquisa.q) // entra dentro do form pesquisa e traz o input q
+        document.pesquisa.q.value = 'Fael' // altera o texto do input q, o valor, para "Fael"
+        document.pesquisa.hl.value = 'en-us'
+        console.log(document.pesquisa.hl.selectedIndex) // me mostra qual Index está selecionado no "hl"
     </script>
 </body>
 
