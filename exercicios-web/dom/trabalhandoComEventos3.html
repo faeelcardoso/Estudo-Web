@@ -45,7 +45,28 @@
     </div>
     <div class="direita" wm-dropzone></div>
     <script>
-        // ...
+        const items = document.querySelectorAll('[wm-dropzone] .item')
+        items.forEach((item, index) => {
+            item.draggable = true // aqui já consigo arrastar o item, porém se soltar ele volta
+            item.id = item.id || `draggable-item-${index}` // se ele tiver um id beleza, se não o index vai gerar os id diferentes
+            item.ondragstart = e => // Quando começar a arrastar o elemento
+                e.dataTransfer.setData('item-id', e.target.id) // ele vai setar o dataTransfer no ondragstart
+        })
+
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+        dropzones.forEach(dropzone => {
+            dropzone.ondragover = e => e.preventDefault() // Quando puxar, o over não vai acontecer como padrão
+            dropzone.ondrop = function(e) {
+                const id = e.dataTransfer.getData('item-id') // setei lá em cima no ondragstart e agr peguei no ondrop
+                const item = document.getElementById(id)
+
+                e.target.appendChild(item) 
+                // o local que eu estiver soltando o elemento, e.target, vou add o child
+                // com isso, se eu soltar o elemento dentro de outro, irá agrupar como se fosse um filho
+
+                dropzone.appendChild(item) // agr com esse, se eu soltar o elemento dentro de outro, ele não vai agrupar 
+            }
+        })
     </script>
 </body>
 

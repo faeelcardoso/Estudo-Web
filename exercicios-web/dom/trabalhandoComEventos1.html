@@ -9,9 +9,32 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- 1ª forma: -->
+        <!-- onclick="navegarEm5s(event)" essa é uma das formas, porém essa forma é limitada a sempre ter que escrever aqui de forma física -->
+        <!-- Quando clicar no link, vai chamar a função e executar o evento -->
+        <a espera-um-pouco href="https://google.com.br">Google</a> 
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault() // Vai previnir que o comportamento padrão não ocorra, obrigatório ter isso
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target
+                // target é o elemento html que dispara o evento
+                window.location.href = link.href
+                // windows.location.href é a barra do browser
+            }, 5000)
+        }
+
+        // 2ª forma: 
+        /* Essa é outra forma, porém não fica explícito no código essa função
+        const a = document.querySelector('a')
+        a.onclick = navegarEm5s */
+
+        // 3ª forma:
+        // Essa é a MELHOR forma, com atributo personalizado, o código e o browser ignora ele e está explícito que o link vai fazer algo
+
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
     </script>
 </body>

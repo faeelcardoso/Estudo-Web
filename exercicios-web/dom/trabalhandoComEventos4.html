@@ -24,6 +24,7 @@
     <h1>Formulário</h1>
     <form name="pesquisa" action="http://www.google.com.br/search">
         <input type="text" name="q" placeholder="Digite o termo...">
+        <!-- Input é o formulário que faz uma pesquisa no google -->
         <select name="hl">
                 <option value="pt-br">Português (Brasil)</option>
                 <option value="en-us">Inglês (Americano)</option>
@@ -31,6 +32,49 @@
         <button wm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+
+        /* 1ª FORMA:
+        const submit = document.querySelector('[wm-submit]')
+        submit.onclick = function(e) { // pego o elemento onclick, ou seja, assim que clicar...
+            e.preventDefault() // aqui eu paro o padrão, ou seja, quando clicar um pesquisar não irá pesquisar
+            // daí posso fazer o que eu quiser
+
+            const form = e.target.parentNode // isso é o form
+            const formData = new FormData(form) // aqui eu tenho os dados do formulário a minha disposição
+            formData.append('ajax', true) // adicionei mais isso no pesquisar 
+            console.log(formData.get('q')) // verifico o valor que está dentro do campo
+            console.log(formData.has('hl')) // verifico se determinado campo está ou não contido
+
+            for (let dado of formData) {
+                console.log(dado)
+                // com esse for vejo todos os dados contidos no form
+            }
+        }
+        */
+
+        // 2ª FORMA:
+        const form = document.forms[0] // só tem 1 form, posso fazer isso
+        form.onsubmit = function(e) { // quando submeter o formulário...
+            e.preventDefault() // aqui eu paro o padrão, ou seja, quando clicar um pesquisar não irá pesquisar
+            // daí posso fazer o que eu quiser
+
+            const form = e.target // isso é o form
+            const formData = new FormData(form) // aqui eu tenho os dados do formulário a minha disposição
+            formData.append('ajax', true) // adicionei mais isso no pesquisar 
+            console.log(formData.get('q')) // verifico o valor que está dentro do campo
+            console.log(formData.has('hl')) // verifico se determinado campo está ou não contido
+
+            for (let dado of formData) {
+                console.log(dado)
+                // com esse for vejo todos os dados contidos no form
+            }
+        }
+
+        /* Conclusão:
+
+            Caso queira fazer algo, como uma req Ajax por exemplo, você pode parar o comportamento padrão ou do click ou do submit
+            fazer alguma manipulação que você queira e por fim mandar isso via requisição Ajax!
+            
+        */
     </script>
 </body>

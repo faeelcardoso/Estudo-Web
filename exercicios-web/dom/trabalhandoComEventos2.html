@@ -10,6 +10,18 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => { // mudar o cursor do mouse
+            const item = e.target // quem disparou o evento, nesse caso a div
+            item.style.cursor = 'move'
+            if (e.buttons) { // se algúem estiver clicado com o mouse, vai estar ! de 0
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                // quem está disparando o evento, nesse caso a div, style e o top = qual a distância da div para o topo
+                // e.clientY = onde o cursor do mouse está - a Altura da div /2 para sempre que eu clique o curso ir para o meio da div
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px` // Agr consigo mover para o lado também
+            }
+        }
     </script>
 </body>
