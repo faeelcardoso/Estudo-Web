@@ -11,6 +11,64 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        function ajax(config) { // criando uma função que tem todos os parametros do ajax
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true) // url
+
+            xhr.onload = e => { // retorna os dados com a onload se tive tudo ok
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.response) // função de sucesso
+                } else if (xhr.status >= 400) {
+                    config.erro({ // função de erro, retorna um codigo e o texto do erro
+                        codigo: xhr.status,
+                        texto: xhr.statusText
+                    })
+                }
+            }
+            xhr.send() // enviar a req
+        }
+
+        function criarTabela(estados) {
+            const linhas = estados.map(estado => { // map para transformar tudo em um novo array de estados
+                    // Vou transformar esses elementos num elemento da DOM
+                    const tdId = document.createElement('id') 
+                    tdId.innerHTML = estado.id 
+
+                    const tdNome = document.createElement('td')
+                    tdNome.innerHTML = estado.nome
+
+                    const tdSigla = document.createElement('td')
+                    tdSigla.innerHTML = estado.sigla
+
+                    const tr = document.createElement('tr')
+
+                    // Adicionando na DOM
+
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome)
+                    tr.appendChild(tdSigla)
+
+                    return tr
+                })
+                // Criando uma tabela
+                const tabela = document.createElement('table')
+                // Adicionando os estados
+                linhas.forEach(linha => tabela.appendChild(linha))
+                // Adicionando no body
+                document.body.appendChild(tabela)
+        }
+
+        ajax({ // Aqui eu só uso tudo o que já fiz
+            url: "dados/estados.json",
+            metodo: "get",
+            sucesso(resposta){ // se der tudo OK recebe os dados
+                const estados = JSON.parse(resposta) // converte para objeto
+                criarTabela(estados) // e passa para tabela
+            },
+            erro(e){ // deu ruim
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`)
+                document.body.appendChild(msg)
+            }
+        })
     </script>
 </body>

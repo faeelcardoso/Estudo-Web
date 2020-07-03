@@ -29,6 +29,41 @@
     </form>
     <div id="resultado"></div>
     <script>
-        // ...
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+
+            const form = e.target // elemento que disparou o evento
+            const data = new FormData(form) // pega todos os dados do formulário e joga nesse objeto
+            data.append('ajax', true) // só para relembrar que posso ver tudo do formulário e adicionar qualquer coisa tbm
+
+            const options = {
+                method: form.method,
+                body: new URLSearchParams(data) // para enviar os dados para o backend de forma correta
+            }
+
+            const resultado = document.getElementById('resultado')
+            // Caso for usar com promise, .then e .catch
+
+            fetch(form.action, options)
+                .then(resp => resp.json())
+                .then(json => {
+                    resultado.innerHTML = JSON.stringify(json)
+                })
+                .catch(e => { // para tratar o erro
+                    resultado.innerHTML = e
+                })
+                
+            
+            // Caso não for trabalhar com promise, pode usar o velho e bom try catch
+            /*
+            try {
+                const resp = await fetch(form.action, options)
+                const json = await resp.json()
+                resultado.innerHTML = JSON.stringify(json)
+            } catch (e){
+                resultado.innerHTML = e
+            }
+            */
+        }
     </script>
 </body>

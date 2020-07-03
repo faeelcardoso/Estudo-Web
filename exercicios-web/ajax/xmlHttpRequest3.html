@@ -11,6 +11,37 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onreadystatechange = e => { // esse evento irá ser chamado sempre que o status da req mudar, de 0 à 4
+                if (xhr.readyState === 4) { // 4 significa que foi finalizada
+                    config.sucesso(xhr.responseXML)
+                } else if (xhr.status >= 400) {
+                    config.erro({
+                        codigo: xhr.status,
+                        texto: xhr.statusText 
+                    })
+                }
+            }
+            xhr.send()
+        }
+
+        ajax({
+            url: "dados/estados.xml",
+            metodo: 'get',
+            sucesso(resposta) {
+                const estados = resposta.getElementsByTagName('estado') // pego as tags no arq xml
+                const itens = Array.from(estados).reduce( // chamo um reduce que vai transformar esse array em um único elemento no final, nessse exemplo uma string
+                    (html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, '' // inicialmente começa vazio, dps oo próprio html vai concatenando
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`) // antes de terminar o body, insira minha "ul" 
+            }, 
+            erro(e){ // deu ruim?
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`)
+                document.body.appendChild(msg)
+            }
+        })
     </script>
 </body>

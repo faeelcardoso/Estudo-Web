@@ -25,6 +25,36 @@
     </nav>
     <div class="pagina"></div>
     <script>
-        // ...
+        function navegarViaAjax(url, seletor, push = true){
+            if(!url || !seletor) return // validando, caso não tenha url ou seletor, já sai vazado
+            const elemento = document.querySelector(seletor)
+            fetch(url)
+                .then(resp => resp.text()) // pego o texto do html
+                .then(html => {
+                    elemento.innerHTML = html // com o html a minha disposição, coloco ele dentro do elemento
+                    if(push) {
+                        history.pushState({ seletor }, 'Página Ajax', url) // seletor do jeito que coloquei é o mesmo que, seletor: seletor
+                        // com o pushState, mesmo navegando na mesma página o histórico na url também irá acompanhar
+                    }
+                })
+                // Seletor está pronto!
+        }
+
+        document.querySelectorAll('[wm-link]').forEach(link => {
+            const url = link.attributes['wm-link'].value // vou pegar o valor desse atributo e armazenar em "url"
+            const seletorDestino = link.attributes['wm-destino'].value // pegar o valor desse atributo e armazenar em "seletorDestino"
+            // agr já tenho o link e o destino
+
+            link.onclick = e =>{
+                e.preventDefault()
+                navegarViaAjax(url, seletorDestino)
+                // Show de bola!
+            }
+        })
+
+        window.onpopstate = e => { // tirar um elemento da pilha, ou seja, do histórico de navegação
+            navegarViaAjax(window.location.href, e.state.seletor, false) // pegando o link, o seletor e colocando push = false pra não salvar o histórico
+        }
+        // agr o histórico na url também acompanha, mesmo sendo na mesma página
     </script>
 </body>
