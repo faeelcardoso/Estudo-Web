@@ -1,4 +1,4 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 257. O que é Ajax? - Ajax
+Parei no 269. Documentação do Gulp - Gulp
