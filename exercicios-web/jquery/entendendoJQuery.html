@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        // Posso usar jQuery ou $
+        $('div').hide(3000).show(3000).fadeOut(3000).fadeIn(3000)
+        // hide desaparece diminuindo
+        // show aparece aumentando
+        // fadeout só desaparece
+        // fadein só aparece
+
+        console.log($('div').get(1)) // para pegar o nó da DOM se usa o elemento "get", pois o jQuery funciona com o Decorator. Aqui estou pegando a div 2
+        console.log($('div').get(0)) // aqui estou pegando a div 1
+        console.log(jQuery.isEmptyObject( { nome: null })) // para saber se o objeto é vazio
+        console.log(jQuery.inArray(3, [1, 2, 3])) // para saber se o 3 está dentro do array. Retorna -1 se não estiver e se estiver retorna o índice que ele se encontra
+
+        // Posso criar também minha própria função
+        $.fn.fundoVerde = function() {
+            this.css('background-color', 'green')
+            return this // importante ter o return this, para eu poder encadear mais coisas depois se eu quiser
+        }
+
+        $('body').fundoVerde().fadeOut(4000).show(5000)
+        // doidera demais kkkkkkkkkkk
+    </script>
+</body>
