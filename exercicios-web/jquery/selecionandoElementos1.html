@@ -49,6 +49,26 @@
     </form>
 
     <script>
-        // ...
+        // Seletores básicos
+        $('#feira').addClass('destaque').removeClass('destaque')
+        $('li').addClass('destaque')
+        $('[wm-obrigatorio]').removeClass('destaque')
+        $('li.opcional').removeClass('destaque')
+        $('div p span').addClass('destaque')
+
+        // Seletores exclusivos do jQuery
+        $('li:first').css('border','solid 3px yellow') // primeiro LI vai receber isso
+        $('li:odd').css('border','solid 10px orange') // os ímpares vão receber isso
+        $('li:gt(1)').css('border', 'solid 10px white') // maior que 1 irá receber isso
+        $('li:not(:last)').css('border', 'none') // o LI que NÃO seja o ÚLTIMO(LAST) irá ficar sem borda
+        $('li:contains("r")').css('background-color', 'black') // os LI's que conter a letra "r" irá receber isso
+
+        // Forms
+        $('form *').hide() // esconde os forms
+        $('form :text').show() // aparece os forms
+        $('form :password').show()
+        $('form :checkbox').show()
+        $('form :radio').show()
+        $('form :file').show()
     </script>
 </body>

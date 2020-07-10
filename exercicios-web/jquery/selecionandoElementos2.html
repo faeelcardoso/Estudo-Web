@@ -81,6 +81,27 @@
         <p>Cod3r Ensino</p>
     </footer>
     <script>
-        // ...
+        const comBorda = { 'border': 'solid 8px orange' }
+        const semBorda = { 'border': 'none' }
+
+        $('a[href="#link3"]').parent().css(comBorda).css(semBorda) // pego um link, e seleciono o pai dele (parent)
+        $('li:last').prev().css(comBorda).css(semBorda) // pego o último LI e dps selecionei o li antes dele(prev)
+        $('a[href="#link3"]').parent().next().css(comBorda).css(semBorda) // pego o link3, dps pego o li antes dele e por fim seleciono o li depois dele(next)
+        $('a[href="#link1"]').parents().css(comBorda).css(semBorda) // pego o link1 e dps seleciono todos os pais dele pra cima(parents)
+        $('a[href="#link1"]').parentsUntil('body').css(comBorda).css(semBorda) // pego o link1 e seleciono todos os pais dele até o body
+        $('main').children().css(comBorda).css(semBorda) // pego todos os filhos do main, porém somente do main
+        $('body').find('a').css(comBorda).css(semBorda) // pega todos os elementos a que estão dentro do body, TODOS, independente se é filho ou não
+
+        // Como trabalhar com a DOM e o jQuery juntos??
+        // Somente um elemento:
+        const elementoDOM = document.getElementsByClassName('menu')
+        $(elementoDOM).css(comBorda).css(semBorda)
+
+        // Percorrendo vários elementos:
+        $('main').children().each((i, e) => $(e).css(comBorda).css(semBorda)) // índice e o próprio elemento (i, e) lembrando que (e) é um elemento DOM e não jQuery
+
+        $('li').each((i, e) => {
+            $(e).css(comBorda)
+        })
     </script>
 </body>

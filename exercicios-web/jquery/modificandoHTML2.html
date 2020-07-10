@@ -17,6 +17,23 @@
     <p class='numero'>5</p>
 
     <script>
-        // ...
+        $('#div1').append(', 2')
+        $('#div1').prepend('0, ')
+
+        $('#div2').before('<p>Antes2</p>') // insere o parágrafo antes
+        $('#div2').after('<p>Depois2</p>') // insere o parágrafo depois
+
+        $('#div3').before('<p>Antes3</p>')
+        $('#div3').after('<p>Depois3</p>')
+
+        //$('p.numero').wrap('<div>') // vai envolver cada p.numero com uma div
+        $('p.numero').wrapAll('<div id="div4">') // vai envolver todos os p.numero em uma única div e já setar um id
+        $('#div4').empty() // limpa o conteúdo da div
+        $('#div3 , #div4').prev().remove() // selecionando os anteriores da div3 e da div4 e removendo ambos
+
+        //$('body > p').replaceWith('<div>Substituto</div>') // todos os parágrafos que estão dentro do body, vou substituir com uma div Substituto
+        $('body > p').replaceWith(function() {
+            return $('<div>').html($(this).html()).append('!!!')
+        }) // parecido com o Wrap, porém aqui eu removo o parágrafo("p") e adiciono uma div, com a liberdado de poder adicionar mais conteúdo dentro pelo append
     </script>
 </body>

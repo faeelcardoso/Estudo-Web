@@ -13,8 +13,38 @@
     <div id='conteudo1'></div>
     <div id='conteudo2'></div>
     <div id='conteudo3'></div>
+    <div>Sem ID!</div>
 
     <script>
-        // ...
+        // Conteudo 1 
+        $('#conteudo1').append('<p>1</p>') // adiciono um parágrafo com 1 no meio no #conteudo1
+
+        // Conteudo 2
+        // se eu fizer "li", seleciono o elemento
+        // se eu fizer "<li>", crio um elemento
+        const elementos = [
+            $('<li>').append('Arroz'),
+            $('<li>').append('Feijão'),
+            $('<li>').append('Carne')
+        ]
+
+        const lista = $('<ul><li>Sorvete</li></ul>').prepend(elementos) 
+        // aqui eu criei uma lista com sorteve dentro e depois adicionei o array elementos dentro dessa lista, e os elementos vao ficar primeiro
+        // que o sorvete, pois usei o "prepend"
+        $('#conteudo2').append(lista)
+        // adicionei a lista dentro do conteudo
+
+        // Conteudo 3
+        $('#conteudo3').append(['<h1>1</h1>', '<h1>2</h1>']).prepend('<h1>0</h1>') 
+        // adiciono no conteúdo 3 o 1 e 2, e o zero antes do 1 e 2 por conta do prepend
+        $('#conteudo3').html('<h1>123</h1>') 
+        // aqui, diferente do append que add, o html subtitui
+        $('#conteudo3').text('<h1>123</h1>')
+        // aqui, o texto coloca literalmente o que está ali dentro
+
+        // Alterando todos de uma vez
+        $('div').html('Todos!')
+        // Alterando todos que tem ID
+        $('div[id]').html('<strong>TODOS QUE TEM ID!</strong>')
     </script>
 </body>

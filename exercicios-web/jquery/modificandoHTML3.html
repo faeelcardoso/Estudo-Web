@@ -13,13 +13,27 @@
     <div id='conteudo'></div>
 
     <script>
-        const pessoas = [
+        // Para fugir do escopo global é interessante fazer o seguinte
+
+        $(document).ready(function() { // ou seja, quando a página estiver pronta, irá executar essa função
+            const alunos = [
             { nome: 'Ana', nota: 9.1 },
             { nome: 'Bianca', nota: 8.4 },
             { nome: 'Carlos', nota: 7.6 },
             { nome: 'Julia', nota: 9.7 }
         ]
+
+        // Criando as linhas
+        const linhas = alunos.map(a => {
+            const tdNome = $('<td>').html(a.nome) // td são os dados, dados nome
+            const tdNota = $('<td>').html(a.nota) // dados nota
+            return $('<tr>').append(tdNome, tdNota) // tr são as linhas, criei uma linha e adicionei tdNome e tdNota
+        })
+
+        // Criando a tabela
+        const tabela = $('<table>').append(linhas).css('border', 'solid 5px') // criei a tabela, adicionei as linhas e um css
         
-        // ...
+        $('#conteudo').append(tabela) // adicionei a tabela na div conteúdo
+        })
     </script>
 </body>
