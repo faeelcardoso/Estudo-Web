@@ -21,6 +21,24 @@
     <input type="text" placeholder="Digite e Selecione">
     <div id="resultado2">?</div>
     <script>
-        // ...
+        const altenarDestaque = () => $('#div1').toggleClass('destaque') // alterna a classe destaque
+        $('#div1').hover(altenarDestaque, altenarDestaque) // hover é quando passar o mouse por cima. Quando passo o mouse chamo uma função, tirei o mouse chamo outra
+        // posso fazer com o "on" também
+        //$('#div1').on('mouseenter mouse leave', altenarDestaque)
+
+        $('#div1').one('mouseenter', e => alert('Aviso IMPORTANTE: THANKS!')) // irá aparecer o evento uma única vez
+        $('#resultado1').dblclick(e => $('#div1').fadeOut('1000').fadeIn(1000)) // quando eu clicar na div2 irá sumir a div1 e depois aparecer, em 1s
+        
+        $(window).resize(function(e) { // sempre quando a janela do browser mudar, mexer
+            const l = $(window).width() // peguei a largura da janela e armazenei em "l"
+            const a = $(window).height() // peguei a altura da janela e armazenei em "a"
+            $('#resultado1').html(`Largura: ${l} e Altura: ${a}`)
+        })
+
+        $(':input').select(e => { // select é quando eu seleciono
+            const inicio = e.target.selectionStart // começo do select
+            const fim = e.target.selectionEnd // fim do select
+            $('#resultado2').html(e.target.value.substring(inicio, fim)) // coloco na div resultado2 apenas uma substring, a parte do texto, que é a selecionada com o mouse
+        })
     </script>
 </body>

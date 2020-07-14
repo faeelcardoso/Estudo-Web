@@ -28,6 +28,32 @@
     <div>Animar!</div>
 
     <script>
-        // ...
+        function alterarLargura(valor, duracao, callback) { // valor dela, quanto tempo quero que dure e oq eu irei chamar quando terminar tudo
+            $('div').animate({ width: `+=${valor}` }, duracao, callback) // += significa no jQuery que determinado largura irá receber um valor adicional
+        }
+
+        function moverDiagonal(valor, duracao, callback) { // vou mexer no top e no left do browser pra mover na diagonal
+            $('div').animate({ top: `+=${valor}`, left: `+=${valor}` }, duracao, callback)
+        }
+
+        function girar(valor, duracao, callback) {
+            $('div').animate({ transform: `+=${valor}` }, {
+                step: function(valor) {
+                    $(this).css('transform', `rotate(${valor}deg)`) // deg = graus
+                },
+                duration: duracao
+            }, 'linear', callback) // duração de forma linear, seguida tranquilamente, de forma normal
+        }
+
+        // EXECUTANDO:
+        alterarLargura(300, 100, () => {
+            alterarLargura(-300, 'slow', () => { // em vez de linear, forma normal. Ele irá retornar slow, devagar
+                moverDiagonal(300, 600, () => {
+                    girar(3300, 3000)
+                })
+            }) 
+        })
+
+        // DÁ PRA FAZER COM PROMISE TAMBÉM, UTILIZANDO OS "THEN"!
     </script>
 </body>

@@ -21,11 +21,38 @@
 <body class='conteudo exercicio'>
     <h1>Eventos #03</h1>
     <div id='div1'>1</div>
-    <div id='div2'>1</div>
+    <div id='div2'>2</div>
     <input id='input1' type='text' placeholder='Digite Algo!'>
     <span id='resultado'></span>
 
     <script>
-        // ...
+        // "e" é o EVENTO
+        function exibirDadosEvento(e) {
+            $('#resultado').empty() // limpa tudo sempre que executar a função
+            const div1 = $('<div>')
+            const div2 = $('<div>')
+
+            $('#resultado').append(div1, div2) // add duas divs no span resultado
+            div1.append(`target: ${e.target.id}`) // sempre que eu passar o mouse nas div ou digitar algo no input, vai add o target atual no span resultado, na div1
+
+            const rt = e.relatedTarget ? e.relatedTarget.tagName : null
+            div1.append(`<br>relatedTarget: ${rt}`) // é um target secundário, coadjuvante
+
+            div1.append(`<br>type: ${e.type}`) // qual o tipo do evento atual
+            div1.append(`<br>which: ${e.which}`) // qual a tecla ou botão do mouse/teclado pressionado
+            div1.append(`<br>metaKey: ${e.metaKey}`) // se a tecla do windows está pressionada ou não
+
+            div2.append(`pageX: ${e.pageX}`) // onde cursor do mouse X está
+            div2.append(`<br>pageY: ${e.pageY}`) // onde o curso do mouse Y está
+            div2.append(`<br>clientX: ${e.clientX}`) // onde cursor do mouse X está
+            div2.append(`<br>clientY: ${e.clientY}`) // onde o curso do mouse Y está
+
+            const obs = e.data ? e.data.obs : null 
+            div2.append(`<br>obs: ${obs}`)
+            // no momento que executar a função, o objeto observação irá ser chamada
+        }
+
+        $('#div1, #div2').on('mouseenter mouseleave', { obs: "Funciona!!" } ,exibirDadosEvento) // passei o mouse em cima da div1 ou 2, chama a função
+        $('input').keyup( { obs: "Funciona!!" }, exibirDadosEvento) // digitei algo, chama a função
     </script>
 </body>

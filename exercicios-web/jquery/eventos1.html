@@ -20,6 +20,42 @@
     <input type="text" placeholder="Cor de Background">
 
     <script>
-        // ...
+        function mostrarPosicaoMouse(e) {
+            $('#posicao').html(`x: ${e.clientX} y: ${e.clientY}`) // para saber qual posição o mouse está na tela do browser
+        }
+
+        // "on" registra uma função, primeiro passa o nome do evento como uma string, e depois a função que será chamada quando esse evento acontecer
+        $('body').on('mousemove', mostrarPosicaoMouse) // sempre que o mouse mexer, irei chamar a função mostrarPosicaoMouse
+
+        // "off" retira uma função 
+        $('#posicao').mouseover(e => { // mouseover, quando o mouse passar por cima da div posicao  
+            $('body').off('mousemove', mostrarPosicaoMouse) // irá executar o on lá de cima, porém quando o ponteiro passar em cima da div posicao, irá travar
+        })
+
+        // voltar a aparecer
+        $('#posicao').mouseleave(e => { // mouseleave, quando o ponteiro sair da div posicao
+            $('body').mousemove(mostrarPosicaoMouse)
+        })
+        // bacana demais
+
+
+        // Monitorando os cliques:
+        let cliques = 0
+        $('body').click(e => {
+            $('#cliques').html(`Cliques: ${++cliques}`) // a cada clique na tela, irá aumentar a variável cliques
+        })
+
+
+        // Manipular os eventos do teclado:
+        const BackgroundOriginal = $('body').css('background-color') // cor original
+
+        $('input').keyup(function(e) {
+            const valor = $(this).val() // para pegar o valor em jQuery é "val"
+            if (valor.match(/#[\da-fA-F]{6}/)) { // se der Match:
+                $('body').css('background-color', valor) // aplica a cor digitada
+            } else { // se não:
+                $('body').css('background-color', BackgroundOriginal) // mantenha a cor original
+            }
+        })
     </script>
 </body>

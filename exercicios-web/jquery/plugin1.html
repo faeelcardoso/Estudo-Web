@@ -22,6 +22,26 @@
     </div>
 
     <script>
-        // ...
+        // const $ = { nome: 'Não é jQuery' }
+        
+
+        // Criando um plugin para rodar o código na div acima:
+        (function ($) { // protegendo a variável dolar, para que o $ só seja usado para jQuery
+            $.fn.interpretar = function () {
+                const retirarChaves = s => s.substring(2, s.length - 2) // tiro 2 caracteres no início e 2 no final e crio uma substring
+                const conteudo = $(this).html() // pego o conteudo
+                const expressoesComChaves = conteudo.match(/\{\{.+\}\}/g) // 2 chaves de um lado e de outro e pode ser qualquer valor dentro e mais de um tbm, global
+                const expressoes = expressoesComChaves.map(retirarChaves) // retirar as chaves
+                const resultados = expressoesComChaves.map(e => eval(e)) // com o eval eu computo um código JS representado com uma string, dentro das chaves
+
+                let conteudoFinal = conteudo // pego o conteudo atual
+                for (let i = 0; i < expressoesComChaves.length; i++) { // passo em todos os conteudos
+                    conteudoFinal = conteudoFinal.replace(expressoesComChaves[i], resultados[i]) // troco o conteudoFinal para as expressoes sem as chaves, em cada elemento
+                }
+                $(this).html(conteudoFinal) // mando o conteúdo final
+            }
+        })(jQuery)
+
+        $('div').interpretar() // para tudo começar a funcionar
     </script>
 </body>
