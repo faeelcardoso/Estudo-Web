@@ -39,6 +39,7 @@
                     conteudoFinal = conteudoFinal.replace(expressoesComChaves[i], resultados[i]) // troco o conteudoFinal para as expressoes sem as chaves, em cada elemento
                 }
                 $(this).html(conteudoFinal) // mando o conteúdo final
+                return this
             }
         })(jQuery)
 

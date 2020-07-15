@@ -1,0 +1,1 @@
+Bootstrap precisa de http-server, jQuery e popper.js, lembrar sempre de instalar
