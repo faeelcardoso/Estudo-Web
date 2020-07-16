@@ -1,5 +1,21 @@
+<!-- LEMBRE-SE: O RECOMENDADO É COLOCAR EXATAMENTE IGUAL ESTÁ NA DOCUMENTAÇÃO DO BOOTSTRAP -->
+
 <!-- Título (jumbotron) -->
 <!-- Breadcrumb -->
+
+<div class="jumbotron p-4 my-1">  <!-- Jumbotron é os efeitos do Bem vindo-Welcome -->
+    <h1 class="display-4">Fundamentos</h1>
+    <p class="lead m-1">Alguns recursos do Bootstrap.</p>
+</div>
+
+<div class="mb-5">
+    <ol class="breadcrumb">  <!-- "migalha de pão", para tornar o site mais acessível -->
+        <li class="breadcrumb-item">
+            <a href="#/paginas/bemVindo.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Fundamentos</li>
+    </ol>
+</div>
 
 <div class="exercicio">
     <h1>1. Tipografia -
@@ -25,6 +41,11 @@
     <hr>
 
     <!-- Espaços -->
+    <!-- criando comando mais rápido = (header.cabecalho>h1)+(aside>nav>ul>li) ou .mb-5 para criar div with class -->
+
+    <div class="mb-5">1</div> <!-- mb significa margin botton 5, ela vai de 0 a 5 -->
+    <div class="m-4 py-4">2</div> <!-- margin 4 e padding no eixo y 4 -->
+    <div class="pt-5">3</div> <!-- padding top 5 -->
 
     <h1 class="mt-5">3. Cores -
         <small>
@@ -34,6 +55,11 @@
     <hr>
 
     <!-- Cores -->
+    <!-- Bootstrap tem as cores padrão, serve para tudo, fundo, botão, texto... (Só olhar a documentação) -->
+
+    <div class="my-1 p-3 bg-primary text-light">1</div>
+    <div class="my-1 p-3 bg-danger text-white">2</div>
+    <div class="my-1 p-3 bg-warning text-success">3</div>
 
     <h1 class="mt-5">4. Flex -
         <small>
@@ -42,25 +68,55 @@
     </h1>
     <hr>
 
-    <!-- Flex -->
+    <!-- Flex Box -->
+    <!--
+        d-flex = flexbox
+        d-sm-flex = flexbox só para telas grandes, celulas não aplica
+        d-lg-flex = flexbox só para disposivos grandes ou maiores do que grandes, medianos e grandes
+        d-xl-flex = flexbox só para dispositivos grandes
+        São várias, só olhar documentação!
+    -->
+
+    <div class="d-flex flex-column-reverse p-2">
+        <div class="align-self-end">1</div>
+        <div class="align-self-center">2</div>
+        <div class="align-self-start">3</div>
+    </div>
 
     <h1 class="mt-5">5. Imagens -
         <small>
             <a href="https://getbootstrap.com/docs/4.0/content/images/" target="_black">Documentação Oficial</a>
         </small>
     </h1>
-    <hr>
+
 
     <!-- Imagens -->
 
-    <h1 class="mt-5">6. Float -
-        <small>
-            <a href="https://getbootstrap.com/docs/4.0/utilities/float/" target="_black">Documentação Oficial</a>
-        </small>
-    </h1>
-    <hr>
+    <div class="p-2">
+        <img src="/imgs/img1.png" alt="Imagem 1" class="mx-auto d-block" width="400">
+        <!-- margin X automatica e display block é um técnica para deixar as imagens no meio, centralizada -->
+        <img src="/imgs/img1.png" alt="Imagem 1" class="img-fluid rounded-circle d-block mx-auto" width="400">
+        <!-- fluid deixa responsiva, para a img não ir pra fora caso a tela seja pequena e rounded-circle a img fica circular -->
+        <img src="/imgs/img1.png" alt="Imagem 1" class="img-thumbnail mx-auto d-block" width="400">
+        <!-- img-thumbnail deixa a img responsiva e com borda -->
+    </div>
 
     <!-- Float -->
+    <!-- é mais recomendado mexer com o flex-box do que com float -->
+
+    <hr>
+        <h1 class="mt-5">6. Float -
+            <small>
+             <a href="https://getbootstrap.com/docs/4.0/utilities/float/" target="_black">Documentação Oficial</a>
+            </small>
+        </h1>
+    <hr>
+
+    <div class="my-1 p-3 float-left">1</div> <!-- esquerda -->
+    <div class="my-1 p-3 float-right">2</div> <!-- direta -->
+    <div class="my-1 p-3 float-lg-right">3</div> <!-- mediana e grande direita -->
+    <div class="my-1 p-3 float-xl-left">4</div> <!-- somente grande esquerda -->
+
 </div>
 
 <style>
