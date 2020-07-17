@@ -16,8 +16,90 @@
     </ol>
 </div>
 
+<!-- Formulário -->
+
 <p class="lead">
     <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_black">Documentação Oficial</a>
 </p>
 
-<!-- Formulário -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">
+            Exemplo de formulário
+        </h5>
+    </div>
+    <div class="card-body">
+        <form action="" class="container-fluid">
+            <div class="form-row">
+                <div class="col-12"> <!-- para todos os dispositivos, irá usar as 12 colunas -->
+                    <div class="form-group">
+                        <label for="nome">Nome:</label> <!-- Label normal -->
+                        <input id="Nome" type="text" class="form-control" placeholder="Informe o nome">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-12 col-md-6"> <!-- 12 colunas para celular, a partir de medio pra cima 6 colunas -->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <div class="input-group">
+                            <input id="email" type="email" class="form-control" placeholder="Informe o email">
+                            <div class="input-group-prepend"> <!-- para criar um input do @ antes -->
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input id="email" type="email" class="form-control" placeholder="Continue o email">
+                        </div>
+                        <small class="form-text text-muted"> <!-- Para colocar uma mensagem a mais, uma OBSERVAÇÃO embaixo do input -->
+                            Enviaremos um e-mail para confirmar o cadastro.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6"> <!-- 12 colunas para celular, a partir de medio pra cima 6 colunas -->
+                    <div class="form-group">
+                        <label for="linguagemPreferida">Linguagem:</label>
+                        <select id="linguagemPreferida" name="" class="form-control">
+                            <option value="">Selecione</option>
+                            <option>JS</option>
+                            <option>Java</option>
+                            <option>C#</option>
+                            <option>Python</option>
+                            <option>PHP</option>
+                            <option>Outras</option>
+                        </select>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="form-row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="Atoa" class="mb-0">O que tu curte fazer:</label>
+                    </div>
+                    <div class="form-check form-check-inline"> <!--  Checkbox em linha reta-->
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Programar</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Estudar</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+                        <label class="form-check-label" for="inlineCheckbox3">Ficar atoa</label>
+                    </div>
+                </div>
+            </div>
+            <hr>  
+
+            <div class="form-row mb-0">
+                <div class="col-12 d-flex justify-content-end"> <!-- Para todos os dispositivos -->
+                    <button class="btn btn-primary mr-2" type="submit">Salvar</button> <!-- submit para salvar  -->
+                    <button class="btn btn-secondary" type="reset">Cancelar</button> <!-- reset para cancelar e limpar tudo -->
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

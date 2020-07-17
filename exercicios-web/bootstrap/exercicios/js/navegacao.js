@@ -12,6 +12,12 @@
             .then(resp => resp.text())
             .then(html => {
                 destino.innerHTML = html
+                const resultado = html.match(/\<script\>([\s\S]*)\<\/script\>/)
+                if (resultado && resultado.length >= 2){ 
+                    eval(resultado[1])
+                }
+                // com isso tudo o que estiver de JS no meu HTML e até quebra de linha, irá funcionar
+                // A função eval() computa um código JavaScript representado como uma string
             })
     }
 
