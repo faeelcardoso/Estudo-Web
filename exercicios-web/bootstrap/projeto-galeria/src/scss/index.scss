@@ -1,0 +1,10 @@
+// Estilos do bootstrap
+@import "~bootstrap/scss/bootstrap"; // o ~ no início é para importar arquivos do node_modules
+
+// Estilos do font awesome
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+
+// Estilos meus
+@import "custom";
