@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Componente 1</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <saudacao nome="Ana"></saudacao>
+        <saudacao nome="Bia"></saudacao>
+        <saudacao nome="Fernanda"></saudacao>
+        <!-- No vue não se pode só criar <saudacao nome="ana" /> igual no React, não frago porq -->
+    </div>
+
+    <script>
+        Vue.component('saudacao', {
+            props: ['nome'],
+            template: `
+                <div>Bom dia {{ nome }}!</div>
+            `
+        })
+        
+        // IMPORTANTE: O new Vue sempre abaixo de tudo!
+        new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+</html>

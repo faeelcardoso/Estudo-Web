@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Diretiva Personalizada</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <input type="text" v-model="nome">
+        <div v-inverter="nome"></div>
+    </div>
+    <script>
+        // Como se fosse sua função, criada por você
+        Vue.directive('inverter', {
+            componentUpdated(el, binding) { // componente foi atualizado 
+                const invertido = binding.value.split('') .reverse().join('') // cria um array com o valor, reverte ele e dps junta dnv
+                el.innerHTML = invertido
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                nome: ''
+            }
+        })
+    </script>
+</body>
+</html>

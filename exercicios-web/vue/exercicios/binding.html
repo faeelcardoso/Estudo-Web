@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{ link }}</p>
+        <!-- Dessa forma não funciona o link, o vue não entende -->
+        <p><a href="{{ link }}">Funciona?</a></p> 
+        <!-- Existem duas formas para o Vue entender que é para fazer algo, com o "V-BIND" normal ou reduzido -->
+        <p><a v-bind:href="link">Funciona!</a></p>
+        <p><a :href="link">Funciona!</a></p>
+
+        <p>
+            <input type="text" v-model="nome"><br> 
+            <!-- O v-model funciona como att em duas diretivas, se eu editar o input, o span será alterado também -->
+            <span>{{ nome }}</span>
+        </p>
+        <p>
+            <input type="text" :value="produto"><br>
+            <!-- Já o bind:value, você também pode editar o input porém o span não é alterado -->
+            <span>{{ produto }}</span>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: "Maria",
+                produto: "Celular",
+                link: "https://instagram.com/faeelcardoso"
+            },
+            watch: { // Com o watch você consegue receber o novo valor de algo, nesse exemplo do "nome" ali em data e depois fazer oq quiser com ele
+                nome(novoValor) {
+                    console.log(novoValor.toUpperCase())
+                }
+            }
+        })
+    </script>
+</body>
+</html>

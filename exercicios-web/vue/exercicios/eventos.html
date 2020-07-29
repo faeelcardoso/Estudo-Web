@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{ contador }}</p>
+        <p>
+            <!-- v-on= sempre que ocorrer um evento chama a função add. Nesse caso o evento é "click" -->
+            <button v-on:click="add">+1</button> 
+            <!-- v-on pode ser reduzido por somente @ -->
+            <button @click="contador -= 2">-2</button>
+            <p @mousemove="atualizarPosicao">
+                Coordenadas: {{x}} e {{y}}
+                <span @mousemove.stop>Aqui não!</span>
+            </p>
+            <p>
+                <!-- Aqui explora um pouco o evento keuyp associado a tecla enter, quando o enter for pressionado, irá chamar a função alerta -->
+                <input type="text" @keyup.enter="alerta">
+            </p>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                x: 0,
+                y: 0,
+                contador: 0
+            },
+            methods: {
+                add() {
+                    this.contador++
+                },
+                atualizarPosicao(e) {
+                    this.x = e.clientX
+                    this.y = e.clientY
+                },
+                alerta() {
+                    alert('Enter foi pressionado!')
+                }
+            }
+        })
+    </script>
+</body>
+</html>
