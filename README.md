@@ -1,4 +1,4 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 390. Baixando o Zip - Vue.js
+Parei no 401. Projeto Sumário de Vendas #01 - Projetos VueJS
