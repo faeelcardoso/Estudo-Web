@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  body {
+    color: #fff;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+  }
+  
+  #app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #app h1 {
+    border: 1px solid #000;
+    background-color: #0004; /* Os 3 primeiros cor, ultimo é a transparencia. Só para lembrar */
+    padding: 20px;
+    margin-bottom: 60px; 
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .form, .form input, .form button {
+    margin-bottom: 10px;
+    font-size: 2rem;
+  }
+  
+  .doors {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }

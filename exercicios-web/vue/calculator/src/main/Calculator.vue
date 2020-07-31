@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script>
+<script> 
 import Button from "../components/Button"
 import Display from "../components/Display"
 
