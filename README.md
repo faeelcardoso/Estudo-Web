@@ -1,4 +1,4 @@
 # Estudo-Web
 Repositório para meu curso de desenvolvimento web online
 
-Parei no 415. Configuração do Projeto - App Desktop
+Parei no 425. Introdução do Módulo - Angular 9
